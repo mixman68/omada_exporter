@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"strings"
 )
 
 func (c *Client) IsLoggedIn() (bool, error) {
@@ -54,14 +53,7 @@ func (c *Client) getCid() (string, error) {
 		return "", err
 	}
 	defer res.Body.Close()
-
-	location := res.Request.URL.Path
-
-	// remove `/login` path from url
-	location = strings.Replace(location, "/login", "", -1)
-
-	// trim first rune from string - leading `/`
-	return location[1:], nil
+	return c.Config.Cid, nil
 }
 
 func (c *Client) Login() error {

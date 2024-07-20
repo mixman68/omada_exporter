@@ -11,4 +11,5 @@ type Config struct {
 	Insecure                 bool
 	GoCollectorDisabled      bool
 	ProcessCollectorDisabled bool
+	Cid                      string
 }

@@ -40,6 +40,7 @@ func Run() {
 		&cli.BoolFlag{Destination: &conf.Insecure, Name: "insecure", Value: false, Usage: "Whether to skip verifying the SSL certificate on the controller.", EnvVars: []string{"OMADA_INSECURE"}},
 		&cli.BoolFlag{Destination: &conf.GoCollectorDisabled, Name: "disable-go-collector", Value: true, Usage: "Disable Go collector metrics.", EnvVars: []string{"OMADA_DISABLE_GO_COLLECTOR"}},
 		&cli.BoolFlag{Destination: &conf.ProcessCollectorDisabled, Name: "disable-process-collector", Value: true, Usage: "Disable process collector metrics.", EnvVars: []string{"OMADA_DISABLE_PROCESS_COLLECTOR"}},
+		&cli.StringFlag{Destination: &conf.Cid, Required: true, Name: "cid", Value: "", Usage: "The CID of the Omada Controller", EnvVars: []string{"OMADA_CID"}},
 	}
 	app.Commands = []*cli.Command{
 		{Name: "version", Aliases: []string{"v"}, Usage: "prints the current version.",
